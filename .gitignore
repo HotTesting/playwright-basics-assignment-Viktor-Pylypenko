@@ -1,0 +1,18 @@
+# Dependency directories
+node_modules/
+
+# IntelliJ IDEA files
+/.idea/
+
+# Playwright files
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# File with environment variables
+.env
