@@ -1,0 +1,15 @@
+{
+  "name": "playwright-basics-assignment-Viktor-Pylypenko",
+  "version": "1.0.0",
+  "repository": "https://github.com/HotTesting/playwright-basics-assignment-Viktor-Pylypenko.git",
+  "author": "Viktor <vitya.slot@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.41.2",
+    "@types/node": "^20.11.19"
+  },
+  "scripts": {},
+  "dependencies": {
+    "dotenv": "^16.4.4"
+  }
+}
