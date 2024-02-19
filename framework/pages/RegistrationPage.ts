@@ -1,13 +1,11 @@
-import { expect, Locator, Page } from "@playwright/test";
+import { expect, Locator } from "@playwright/test";
 import { UserRegistrationData } from "../types/UserRegistrationData";
 import { Spinner } from "../common-elements/Spinner";
+import { BasePage } from "./BasePage";
 
-export class RegistrationPage {
+export class RegistrationPage extends BasePage {
 
-    private path: string = '/register';
-    private title: string = 'MERN Store';
-
-    private mainBlock: Locator = this.page.getByRole('main');
+    protected path: string = '/register';
 
     private emailAddressField: Locator = this.mainBlock.getByRole('textbox', { name: 'Please Enter Your Email' });
     private firstNameField: Locator = this.mainBlock.getByRole('textbox', { name: 'Please Enter Your First Name' });
@@ -15,18 +13,12 @@ export class RegistrationPage {
     private passwordField: Locator = this.mainBlock.getByRole('textbox', { name: 'Please Enter Your Password' });
     private signUpButton: Locator = this.mainBlock.getByRole('button', { name: 'Sign Up' });
 
-    constructor(public page: Page) {}
-
     async userRegistration(userData: UserRegistrationData) {
         await this.emailAddressField.fill(userData.email);
         await this.firstNameField.fill(userData.firstName);
         await this.lastNameField.fill(userData.lastName);
         await this.passwordField.fill(userData.password);
         await this.signUpButton.click();
-    }
-
-    async open() {
-        await this.page.goto(this.path);
     }
 
     async assertPageOpened() {

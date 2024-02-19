@@ -1,19 +1,11 @@
-import { expect, Locator, Page } from "@playwright/test";
+import { expect } from "@playwright/test";
 import { UserRegistrationData } from "../types/UserRegistrationData";
-import {Spinner} from "../common-elements/Spinner";
+import { Spinner } from "../common-elements/Spinner";
+import { BasePage } from "./BasePage";
 
-export class DashboardPage {
+export class DashboardPage extends BasePage {
 
-    private path: string = '/dashboard';
-    private title: string = 'MERN Store';
-
-    private mainBlock: Locator = this.page.getByRole('main');
-
-    constructor(public page: Page) {}
-
-    async open() {
-        await this.page.goto(this.path);
-    }
+    protected path: string = '/dashboard';
 
     async openWishList() {
         await this.mainBlock

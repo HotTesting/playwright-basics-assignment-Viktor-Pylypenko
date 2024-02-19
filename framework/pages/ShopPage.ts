@@ -1,21 +1,13 @@
-import {expect, Locator, Page} from "@playwright/test";
+import { expect, Locator } from "@playwright/test";
 import { Toaster } from "../common-elements/Toaster";
-import {Spinner} from "../common-elements/Spinner";
+import { Spinner } from "../common-elements/Spinner";
+import { BasePage } from "./BasePage";
 
-export class ShopPage {
+export class ShopPage extends BasePage {
 
-    private path: string = '/shop';
-    private title: string = 'MERN Store';
-
-    private mainBlock: Locator = this.page.getByRole('main');
+    protected path: string = '/shop';
 
     private productCounter: Locator = this.mainBlock.locator('.text-center');
-
-    constructor(public page: Page) {}
-
-    async open() {
-        await this.page.goto(this.path);
-    }
 
     async assertPageOpened() {
         await this.page.waitForURL(process.env.BASE_URL + this.path, { waitUntil: 'domcontentloaded' })
